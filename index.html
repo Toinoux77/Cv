@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ARNOUX Antoine CV</title>
+</head>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--accent:#FF4D1C;--accent2:#1C6EFF;--bg:var(--color-background-primary);--bg2:var(--color-background-secondary);--txt:var(--color-text-primary);--txt2:var(--color-text-secondary);--brd:var(--color-border-tertiary)}
+  body{font-family:'Syne',sans-serif;background:transparent}
+  .cv{max-width:900px;margin:0 auto;padding:1.5rem 1rem}
+
+  .header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;padding-bottom:2rem;border-bottom:2px solid var(--txt);margin-bottom:2rem}
+  .name{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;line-height:1;letter-spacing:-2px;color:var(--txt)}
+  .name span{color:var(--accent)}
+  .role{font-family:'Space Mono',monospace;font-size:1rem;color:var(--accent2);margin-top:0.6rem;letter-spacing:1px;line-height:1.8}
+  .badge{display:inline-block;background:var(--accent);color:white;font-family:'Space Mono',monospace;font-size:0.9rem;padding:3px 10px;border-radius:2px;margin-top:6px}
+  .header-right{text-align:right;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--txt2);line-height:2.1}
+  .header-right a{color:var(--accent);text-decoration:none}
+  .header-right a:hover{text-decoration:underline}
+
+  .nav{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+  .nav-btn{flex: 1; text-align: center; font-family:'Space Mono',monospace;font-size:0.8rem;padding:6px 14px;border:1px solid var(--brd);border-radius:2px;background:gray;color:var(--txt2);cursor:pointer;transition:all 0.15s;letter-spacing:0.5px}
+  .nav-btn:hover,.nav-btn.active{background:thistle;color:var(--bg);border-color:var(--txt)}
+  
+  .section{display:none;animation:fadeIn 0.2s ease}
+  .section.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .section-label{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+
+  .profil-box{border-left:3px solid var(--accent);padding:1rem 1.5rem;background:var(--bg2);border-radius:0 4px 4px 0}
+  .profil-box p{font-size:0.95rem;color:var(--txt);line-height:1.8}
+  .profil-box strong{color:blueviolet}
+
+  .exp-list{display:flex;flex-direction:column;gap:0}
+  .exp-item{border-left:2px solid var(--brd);padding:0 0 2rem 1.5rem;position:relative;cursor:pointer}
+  .exp-item::before{content:'';position:absolute;left:-5px;top:4px;width:8px;height:8px;background:var(--bg);border:2px solid var(--brd);border-radius:50%;transition:all 0.2s}
+  .exp-item:hover::before,.exp-item.open::before{background:var(--accent);border-color:var(--accent)}
+  .exp-header{display:flex;justify-content:space-between;align-items:start;gap:1rem}
+  .exp-company{font-size:1rem;font-weight:700;color:var(--txt)}
+  .exp-role{font-size:0.85rem;color:var(--txt2);margin-top:2px}
+  .exp-date{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--accent2);white-space:nowrap}
+  .exp-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+  .exp-item.open .exp-body{max-height:300px}
+  .exp-body ul{margin-top:0.75rem;padding-left:1rem}
+  .exp-body li{font-size:0.88rem;color:var(--txt2);line-height:1.7;margin-bottom:4px}
+  .exp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:0.75rem}
+  .tag{font-family:'Space Mono',monospace;font-size:0.68rem;padding:3px 8px;border:1px solid var(--brd);color:var(--txt2);border-radius:2px}
+
+  /*Mises en forme de Competences*/
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+  .skill-cat{padding:1.25rem;border:1px solid var(--brd);border-radius:4px}
+  .skill-cat-name{font-size:0.7rem;font-weight:700;letter-spacing:1px;color:var(--accent);margin-bottom:1rem;font-family:'Space Mono',monospace}
+  .skill-row {display: flex;justify-content: space-between;align-items: center;margin-bottom: 10px;}
+  .skill-name {font-size: 0.83rem;color: var(--txt);width: 120px;flex-shrink: 0;}
+  .skill-bar {width: 90px;height: 3px;background: var(--brd);flex-shrink: 0;}
+  .skill-fill{height:100%;background:var(--accent);border-radius:2px;width:90%;transition:width 1s ease}
+  .skill-fill.blue{background:var(--accent2)}
+  .lang-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+  .lang-card{border:1px solid var(--brd);padding:0.75rem;border-radius:4px;text-align:center}
+  .lang-flag{font-size:3rem;display:block;margin-bottom:4px}
+  .lang-name{font-size:0.85rem;font-weight:700;color:var(--txt)}
+  .lang-level{font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--accent2);margin-top:2px}
+
+  /*Mise en forme pour les Formations*/
+  .edu-list{display:flex;flex-direction:column;gap:0}
+  .edu-item{border-left:2px solid var(--brd);padding:0 0 1.75rem 1.5rem;position:relative}
+  .edu-item::before{content:'';position:absolute;left:-5px;top:4px;width:8px;height:8px;background:var(--accent2);border:2px solid var(--accent2);border-radius:50%}
+  .edu-year{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--accent2);margin-bottom:4px}
+  .edu-degree{font-size:1rem;font-weight:700;color:var(--txt)}
+  .edu-school{font-size:0.85rem;color:var(--txt2);margin-top:2px;font-style:italic}
+  .edu-desc{font-size:0.85rem;color:var(--txt2);margin-top:6px;line-height:1.6}
+  .mention{display:inline-block;background:var(--bg2);border:1px solid var(--brd);font-family:'Space Mono',monospace;font-size:0.68rem;padding:2px 8px;border-radius:2px;color:var(--accent);margin-top:6px}
+
+  .proj-title{font-size:1.05rem;font-weight:700;color:var(--txt);margin-bottom:8px}
+  .proj-desc{font-size:0.88rem;color:var(--txt2);line-height:1.7}
+  .proj-desc li{margin-bottom:4px;padding-left:0.25rem}
+  .proj-stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:0.75rem}
+  
+  /*Mise en forme pour les Centres d'interets*/
+  .interests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+  .interest-item{padding:1.25rem;border:1px solid var(--brd);border-radius:4px;transition:border-color 0.2s,transform 0.2s}
+  .interest-item:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .interest-icon{font-size:1.75rem;margin-bottom:0.6rem;display:block}
+  .interest-name{font-size:0.9rem;font-weight:700;color:var(--txt)}
+  .interest-desc{font-size:0.8rem;color:var(--txt2);margin-top:4px;line-height:1.5}
+
+  .cta{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .cta-text{font-size:0.8rem;color:var(--txt2);font-family:'Space Mono',monospace}
+  .cta-btn{background:var(--accent);color:white;border:none;padding:10px 24px;font-family:'Space Mono',monospace;font-size:0.78rem;cursor:pointer;border-radius:2px;letter-spacing:1px;transition:opacity 0.15s}
+  .cta-btn:hover{opacity:0.85}
+</style>
+
+<div class="cv">
+  <div class="header">
+    <div>
+      <div class="name">Antoine<span>.</span><br>Arnoux</div>
+      <div class="role">• Étudiant Ingénieur Informatique — <a href="https://cytech.cyu.fr" target="_blank">CY Tech</a><br>• Algorithmique · Développement · Systèmes</div>
+      <div class="badge">Stage 10 semaines — Juin › Août 2026</div>
+    </div>
+    <div class="header-right">
+      <div>Cergy, France</div>
+      <div><a href="mailto:antoinephilipearnoux@gmail.com" target="_blank">antoinephilipearnoux@gmail.com</a></div>
+      <div>+33 7 82 30 92 21</div>
+      <div><a href="https://github.com/Toinoux77" target="_blank">MyGithub</a></div>
+      <div><a href="https://www.linkedin.com/in/antoine-arnoux-513710386/" target="blank">MyLinkedIn</a></div>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <button class="nav-btn active" data-tab="profil">Profil</button>
+    <button class="nav-btn" data-tab="exp">Expériences</button>
+    <button class="nav-btn" data-tab="skills">Compétences</button>
+    <button class="nav-btn" data-tab="edu">Formation</button>
+    <button class="nav-btn" data-tab="proj">Projets</button>
+    <button class="nav-btn" data-tab="int">Centres d'intérêt</button>
+  </nav>
+
+  <div class="section active" id="profil">
+    <div class="section-label">→ À propos</div>
+    <div class="profil-box">
+      <p>Étudiant en <strong>L3 Ingénieur Informatique à CY Tech</strong> (ex-EISTI), passionné par le développement et l'algorithmique. Maîtrise de <strong>Python, Java et C</strong>. Bilingue Français / Espagnol, je recherche une première expérience professionnelle du <strong>22 juin au 31 août 2026</strong> pour mettre mes compétences techniques au service de projets concrets, apprendre et m'améliorer.</p>
+    </div>
+  </div>
+
+  <div class="section" id="exp">
+    <div class="section-label">→ Expériences professionnelles</div>
+    <div class="exp-list">
+      <div class="exp-item open" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">La Francesa — République Dominicaine</div>
+            <div class="exp-role">Employé Polyvalent & Responsable Caisse</div>
+          </div>
+          <div class="exp-date">Juil–Sept 2022 & 2023</div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><strong style="color:var(--txt)">Rigueur financière</strong> — Responsable de la fiabilité de la caisse et des flux monétaires.</li>
+            <li><strong style="color:var(--txt)">Gestion opérationnelle</strong> — Optimisation du stockage en rayon et gestion des priorités en période de forte affluence.</li>
+          </ul>
+          <div class="exp-tags"><span class="tag">Gestion</span><span class="tag">Rigueur</span><span class="tag">Travail en équipe</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="section-label">→ Stack technique</div>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <div class="skill-cat-name">Langages</div>
+        <div class="skill-row"><span class="skill-name">Java        </span><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Python      </span><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><span class="skill-name">C           </span><div class="skill-bar"><div class="skill-fill" data-w="50"></div></div></div>
+        <div class="skill-row"><span class="skill-name">OCaml       </span><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><span class="skill-name">SQL / MySQL </span><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><span class="skill-name">HTML/CSS/PHP</span><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-name">Outils & Env.</div>
+        <div class="skill-row"><span class="skill-name">Git</span><div class="skill-bar"><div class="skill-fill blue" data-w="80"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Linux / Shell</span><div class="skill-bar"><div class="skill-fill blue" data-w="75"></div></div></div>
+        <div class="skill-row"><span class="skill-name">IntelliJ IDEA</span><div class="skill-bar"><div class="skill-fill blue" data-w="85"></div></div></div>
+        <div class="skill-row"><span class="skill-name">VS Code</span><div class="skill-bar"><div class="skill-fill blue" data-w="80"></div></div></div>
+      </div>
+      <div class="skill-cat" style="grid-column:1/-1">
+        <div class="skill-cat-name">Langues</div>
+        <div class="lang-grid">
+          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/es.png" alt="Drapeau espagnol"></span><div class="lang-name">Espagnol</div><div class="lang-level">Maternel</div></div>
+          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/fr.png" alt="Drapeau francais"></span><div class="lang-name">Français</div><div class="lang-level">Maternel</div></div>
+          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/gb.png" alt="Drapeau anglais"></span><div class="lang-name">Anglais</div><div class="lang-level">Courant</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="edu">
+    <div class="section-label">→ Parcours académique</div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-year">2025 → 2026</div>
+        <div class="edu-degree">Parcours Ingénieur Informatique</div>
+        <div class="edu-school">📍CY Tech (Grande École d'Ingénieurs) — Cergy</div>
+        <div class="edu-desc">Spécialisation en algorithmique, structures de données et programmation orientée objet.</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2023 → 2025</div>
+        <div class="edu-degree">Classe Préparatoire aux Grandes Écoles (CPGE)</div>
+        <div class="edu-school">📍Lycée Champollion — Grenoble</div>
+        <div class="edu-desc">Filière Scientifique — Mathématiques, Physique, Option Informatique.</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2023</div>
+        <div class="edu-degree">Baccalauréat Général</div>
+        <div class="edu-school">📍Lycée Français de Saint-Domingue</div>
+        <div class="edu-desc">Spécialités : Mathématiques, Physique-Chimie, Option Mathématiques expertes.</div>
+        <div class="mention">Mention Très Bien</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="proj">
+    <div class="section-label">→ Projets</div>
+    <div class="proj-card">
+      <div class="proj-title">Gestionnaire de Flotte de Robots Autonomes</div>
+      <ul class="proj-desc">
+        <li>Développement d'une application de simulation logistique pour l'optimisation des déplacements de robots dans un entrepôt.</li>
+        <li>Implémentation d'un système d'anticipation de collisions et de gestion des priorités pour les passages en zones étroites.</li>
+        <li>Évitement de goulots d'étranglement par algorithmique des graphes.</li>
+      </ul>
+      <div class="proj-stack">
+        <span class="tag">Java</span><span class="tag">POO</span><span class="tag">Structures de données</span><span class="tag">Algorithmique des graphes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="int">
+    <div class="section-label">→ Ce qui m'anime</div>
+    <div class="interests-grid">
+      <div class="interest-item"><span class="interest-icon">🥊</span><div class="interest-name">Kickboxing</div><div class="interest-desc">Esprit de compétition et discipline</div></div>
+      <div class="interest-item"><span class="interest-icon">🏋️</span><div class="interest-name">Musculation</div><div class="interest-desc">Régularité et dépassement de soi</div></div>
+      <div class="interest-item"><span class="interest-icon">🤺</span><div class="interest-name">Escrime</div><div class="interest-desc">Précision, stratégie, compétition</div></div>
+      <div class="interest-item"><span class="interest-icon">🌊</span><div class="interest-name">Bénévolat</div><div class="interest-desc">Nettoyage de plage — <a href="https://parley.tv">Parley for the Oceans</a></div></div>
+      <div class="interest-item"><span class="interest-icon">🏃</span><div class="interest-name">Course caritative</div><div class="interest-desc">Santa Run — engagement solidaire</div></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <span class="cta-text">• Disponible pour un stage de 10 semaines du 22 juin au 31 août 2026</span>
+  </div>
+</div>
+
+<script>
+  document.getElementById('nav').addEventListener('click',function(e){
+    if(!e.target.matches('.nav-btn'))return;
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    e.target.classList.add('active');
+    document.getElementById(e.target.dataset.tab).classList.add('active');
+    if(e.target.dataset.tab==='skills')animateBars();
+  });
+  function toggleExp(el){el.classList.toggle('open')}
+  function animateBars(){
+    document.querySelectorAll('.skill-fill').forEach(function(bar){
+      setTimeout(function(){bar.style.width=bar.dataset.w+'%'},100);
+    });
+  }
+</script>
