@@ -1,9 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="fr">
+<script src="translations.js"></script>
 <head>
   <meta charset="UTF-8">
   <title>ARNOUX Antoine CV</title>
+  <button onclick="applyTranslation('fr')">🇫🇷</button>
+  <button onclick="applyTranslation('en')">🇬🇧</button>
 </head>
 
 <style>
@@ -98,11 +101,11 @@
   <div class="header">
     <div>
       <div class="name">Antoine<span>.</span><br>Arnoux</div>
-      <div class="role">• Étudiant Ingénieur Informatique — <a href="https://cytech.cyu.fr" target="_blank">CY Tech</a><br>• Algorithmique · Développement · Systèmes</div>
-      <div class="badge">Stage 10 semaines — Juin › Août 2026</div>
+      <div class="role" id="role1">• Étudiant Ingénieur Informatique — <a href="https://cytech.cyu.fr" target="_blank">CY Tech</a><br id="role2">• Algorithmique · Développement · Systèmes</div>
+      <div class="badge" id="badge">Stage 10 semaines — Juin › Août 2026</div>
     </div>
     <div class="header-right">
-      <div>Cergy, France</div>
+      <div id="location">Cergy, France</div>
       <div><a href="mailto:antoinephilipearnoux@gmail.com" target="_blank">antoinephilipearnoux@gmail.com</a></div>
       <div><a href="https://github.com/Toinoux77" target="_blank">MyGithub</a></div>
       <div><a href="https://www.linkedin.com/in/antoine-arnoux-513710386/" target="blank">MyLinkedIn</a></div>
@@ -110,48 +113,48 @@
   </div>
 
   <nav class="nav" id="nav">
-    <button class="nav-btn active" data-tab="profil">Profil</button>
-    <button class="nav-btn" data-tab="exp">Expériences</button>
-    <button class="nav-btn" data-tab="skills">Compétences</button>
-    <button class="nav-btn" data-tab="edu">Formation</button>
-    <button class="nav-btn" data-tab="proj">Projets</button>
-    <button class="nav-btn" data-tab="int">Centres d'intérêt</button>
+    <button class="nav-btn active" data-tab="profil" id="nav_profil">Profil</button>
+    <button class="nav-btn" data-tab="exp" id="nav_exp">Expériences</button>
+    <button class="nav-btn" data-tab="skills" id="nav_skills">Compétences</button>
+    <button class="nav-btn" data-tab="edu" id="nav_edu">Formation</button>
+    <button class="nav-btn" data-tab="proj" id="nav_proj">Projets</button>
+    <button class="nav-btn" data-tab="int" id="nav_int">Centres d'intérêt</button>
   </nav>
 
   <div class="section active" id="profil">
-    <div class="section-label">→ À propos</div>
-    <div class="profil-box">
+    <div class="section-label" id="section_profil">→ À propos</div>
+    <div class="profil-box" id="profil_text">
       <p>Étudiant en <strong>L3 Ingénieur Informatique à CY Tech</strong> (ex-EISTI), passionné par le développement et l'algorithmique. Maîtrise de <strong>Python, Java et C</strong>. Bilingue Français / Espagnol, je recherche une première expérience professionnelle du <strong>22 juin au 31 août 2026</strong> pour mettre mes compétences techniques au service de projets concrets, apprendre et m'améliorer.</p>
     </div>
   </div>
 
   <div class="section" id="exp">
-    <div class="section-label">→ Expériences professionnelles</div>
+    <div class="section-label" id="section_exp">→ Expériences professionnelles</div>
     <div class="exp-list">
       <div class="exp-item open" onclick="toggleExp(this)">
         <div class="exp-header">
           <div>
-            <div class="exp-company">La Francesa — République Dominicaine</div>
-            <div class="exp-role">Employé Polyvalent & Responsable Caisse</div>
+            <div class="exp-company" id="exp1_company">La Francesa — République Dominicaine</div>
+            <div class="exp-role" id="exp1_role">Employé Polyvalent & Responsable Caisse</div>
           </div>
-          <div class="exp-date">Juil–Sept 2022 & 2023</div>
+          <div class="exp-date" id="exp1_date">Juil–Sept 2022 & 2023</div>
         </div>
         <div class="exp-body">
           <ul>
-            <li><strong style="color:var(--txt)">Rigueur financière</strong> — Responsable de la fiabilité de la caisse et des flux monétaires.</li>
-            <li><strong style="color:var(--txt)">Gestion opérationnelle</strong> — Optimisation du stockage en rayon et gestion des priorités en période de forte affluence.</li>
+            <li><strong style="color:var(--txt)" id="exp1_li1">Rigueur financière</strong> — Responsable de la fiabilité de la caisse et des flux monétaires.</li>
+            <li><strong style="color:var(--txt)" id="exp1_li2">Gestion opérationnelle</strong> — Optimisation du stockage en rayon et gestion des priorités en période de forte affluence.</li>
           </ul>
-          <div class="exp-tags"><span class="tag">Gestion</span><span class="tag">Rigueur</span><span class="tag">Travail en équipe</span></div>
+          <div class="exp-tags"><span class="tag" id="exp1_tag1">Gestion</span><span class="tag" id="exp1_tag2">Rigueur</span><span class="tag" id="exp1_tag3">Travail en équipe</span></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section" id="skills">
-    <div class="section-label">→ Stack technique</div>
+    <div class="section-label" id="section_skills">→ Stack technique</div>
     <div class="skills-grid">
       <div class="skill-cat">
-        <div class="skill-cat-name">Langages</div>
+        <div class="skill-cat-name" id="skills_cat1">Langages</div>
         <div class="skill-row"><span class="skill-name">Java        </span><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
         <div class="skill-row"><span class="skill-name">Python      </span><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
         <div class="skill-row"><span class="skill-name">C           </span><div class="skill-bar"><div class="skill-fill" data-w="50"></div></div></div>
@@ -160,76 +163,76 @@
         <div class="skill-row"><span class="skill-name">HTML/CSS/PHP</span><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
       </div>
       <div class="skill-cat">
-        <div class="skill-cat-name">Outils & Env.</div>
+        <div class="skill-cat-name" id="skills_cat2">Outils & Env.</div>
         <div class="skill-row"><span class="skill-name">Git</span><div class="skill-bar"><div class="skill-fill blue" data-w="80"></div></div></div>
         <div class="skill-row"><span class="skill-name">Linux / Shell</span><div class="skill-bar"><div class="skill-fill blue" data-w="75"></div></div></div>
         <div class="skill-row"><span class="skill-name">IntelliJ IDEA</span><div class="skill-bar"><div class="skill-fill blue" data-w="85"></div></div></div>
         <div class="skill-row"><span class="skill-name">VS Code</span><div class="skill-bar"><div class="skill-fill blue" data-w="80"></div></div></div>
       </div>
       <div class="skill-cat" style="grid-column:1/-1">
-        <div class="skill-cat-name">Langues</div>
+        <div class="skill-cat-name" id="skills_cat3">Langues</div>
         <div class="lang-grid">
-          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/es.png" alt="Drapeau espagnol"></span><div class="lang-name">Espagnol</div><div class="lang-level">Maternel</div></div>
-          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/fr.png" alt="Drapeau francais"></span><div class="lang-name">Français</div><div class="lang-level">Maternel</div></div>
-          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/gb.png" alt="Drapeau anglais"></span><div class="lang-name">Anglais</div><div class="lang-level">Courant</div></div>
+          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/es.png" alt="Drapeau espagnol"></span><div class="lang-name" id="lang1_lang">Espagnol</div><div class="lang-level" id="lang1_level">Maternel</div></div>
+          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/fr.png" alt="Drapeau francais"></span><div class="lang-name" id="lang2_lang">Français</div><div class="lang-level" id="lang2_level">Maternel</div></div>
+          <div class="lang-card"><span class="lang-flag"><img src="https://flagcdn.com/w20/gb.png" alt="Drapeau anglais"></span><div class="lang-name" id="lang3_lang">Anglais</div><div class="lang-level" id="lang3_level">Courant</div></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section" id="edu">
-    <div class="section-label">→ Parcours académique</div>
+    <div class="section-label" id="section_edu">→ Parcours académique</div>
     <div class="edu-list">
       <div class="edu-item">
         <div class="edu-year">2025 → 2026</div>
-        <div class="edu-degree">Parcours Ingénieur Informatique</div>
-        <div class="edu-school">📍CY Tech (Grande École d'Ingénieurs) — Cergy</div>
-        <div class="edu-desc">Spécialisation en algorithmique, structures de données et programmation orientée objet.</div>
+        <div class="edu-degree" id="edu1_degree">Parcours Ingénieur Informatique</div>
+        <div class="edu-school" id="edu1_school">📍CY Tech (Grande École d'Ingénieurs) — Cergy</div>
+        <div class="edu-desc" id="edu1_desc">Spécialisation en algorithmique, structures de données et programmation orientée objet.</div>
       </div>
       <div class="edu-item">
         <div class="edu-year">2023 → 2025</div>
-        <div class="edu-degree">Classe Préparatoire aux Grandes Écoles (CPGE)</div>
-        <div class="edu-school">📍Lycée Champollion — Grenoble</div>
-        <div class="edu-desc">Filière Scientifique — Mathématiques, Physique, Option Informatique.</div>
+        <div class="edu-degree" id="edu2_degree">Classe Préparatoire aux Grandes Écoles (CPGE)</div>
+        <div class="edu-school" id="edu2_school">📍Lycée Champollion — Grenoble</div>
+        <div class="edu-desc" id="edu2_desc">Filière Scientifique — Mathématiques, Physique, Option Informatique.</div>
       </div>
       <div class="edu-item">
         <div class="edu-year">2023</div>
-        <div class="edu-degree">Baccalauréat Général</div>
-        <div class="edu-school">📍Lycée Français de Saint-Domingue</div>
-        <div class="edu-desc">Spécialités : Mathématiques, Physique-Chimie, Option Mathématiques expertes.</div>
-        <div class="mention">Mention Très Bien</div>
+        <div class="edu-degree" id="edu3_degree">Baccalauréat Général</div>
+        <div class="edu-school" id="edu3_school">📍Lycée Français de Saint-Domingue</div>
+        <div class="edu-desc" id="edu3_desc">Spécialités : Mathématiques, Physique-Chimie, Option Mathématiques expertes.</div>
+        <div class="mention" id="edu3_mention">Mention Très Bien</div>
       </div>
     </div>
   </div>
 
   <div class="section" id="proj">
-    <div class="section-label">→ Projets</div>
+    <div class="section-label" id="section_proj">→ Projets</div>
     <div class="proj-card">
-      <div class="proj-title">Gestionnaire de Flotte de Robots Autonomes</div>
+      <div class="proj-title" id="proj1_title">Gestionnaire de Flotte de Robots Autonomes</div>
       <ul class="proj-desc">
-        <li>Développement d'une application de simulation logistique pour l'optimisation des déplacements de robots dans un entrepôt.</li>
-        <li>Implémentation d'un système d'anticipation de collisions et de gestion des priorités pour les passages en zones étroites.</li>
-        <li>Évitement de goulots d'étranglement par algorithmique des graphes.</li>
+        <li id="proj1_li1">Développement d'une application de simulation logistique pour l'optimisation des déplacements de robots dans un entrepôt.</li>
+        <li id="proj1_li2">Implémentation d'un système d'anticipation de collisions et de gestion des priorités pour les passages en zones étroites.</li>
+        <li id="proj1_li3">Évitement de goulots d'étranglement par algorithmique des graphes.</li>
       </ul>
       <div class="proj-stack">
-        <span class="tag">Java</span><span class="tag">POO</span><span class="tag">Structures de données</span><span class="tag">Algorithmique des graphes</span>
+        <span class="tag">Java</span><span class="tag" id="proj1-stack2">POO</span><span class="tag" id="proj1_stack3">Structures de données</span><span class="tag" id="proj1_stack4">Algorithmique des graphes</span>
       </div>
     </div>
   </div>
 
   <div class="section" id="int">
-    <div class="section-label">→ Ce qui m'anime</div>
+    <div class="section-label" id="section_int">→ Ce qui m'anime</div>
     <div class="interests-grid">
-      <div class="interest-item"><span class="interest-icon">🥊</span><div class="interest-name">Kickboxing</div><div class="interest-desc">Esprit de compétition et discipline</div></div>
-      <div class="interest-item"><span class="interest-icon">🏋️</span><div class="interest-name">Musculation</div><div class="interest-desc">Régularité et dépassement de soi</div></div>
-      <div class="interest-item"><span class="interest-icon">🤺</span><div class="interest-name">Escrime</div><div class="interest-desc">Précision, stratégie, compétition</div></div>
-      <div class="interest-item"><span class="interest-icon">🌊</span><div class="interest-name">Bénévolat</div><div class="interest-desc">Nettoyage de plage — <a href="https://parley.tv">Parley for the Oceans</a></div></div>
-      <div class="interest-item"><span class="interest-icon">🏃</span><div class="interest-name">Course caritative</div><div class="interest-desc">Santa Run — engagement solidaire</div></div>
+      <div class="interest-item"><span class="interest-icon">🥊</span><div class="interest-name" id="int1_name">Kickboxing</div><div class="interest-desc" id="int1_desc">Esprit de compétition et discipline</div></div>
+      <div class="interest-item"><span class="interest-icon">🏋️</span><div class="interest-name" id="int2_name">Musculation</div><div class="interest-desc" id="int2_desc">Régularité et dépassement de soi</div></div>
+      <div class="interest-item"><span class="interest-icon">🤺</span><div class="interest-name" id="int3_name">Escrime</div><div class="interest-desc" id="int3_desc">Précision, stratégie, compétition</div></div>
+      <div class="interest-item"><span class="interest-icon">🌊</span><div class="interest-name" id="int4_name">Bénévolat</div><div class="interest-desc" id="int4_desc">Nettoyage de plage — <a href="https://parley.tv">Parley for the Oceans</a></div></div>
+      <div class="interest-item"><span class="interest-icon">🏃</span><div class="interest-name" id="int5_name">Course caritative</div><div class="interest-desc"  id="int5_desc">Santa Run — engagement solidaire</div></div>
     </div>
   </div>
 
   <div class="cta">
-    <span class="cta-text">• Disponible pour un stage de 10 semaines du 22 juin au 31 août 2026</span>
+    <span class="cta-text" id="cta_text">• Disponible pour un stage de 10 semaines du 22 juin au 31 août 2026</span>
   </div>
 </div>
 
