@@ -15,11 +15,11 @@ const translations = {
     nav_int: "Centres d'intérêt",
 
     // Profil
-    section_profil: "// À propos",
+    section_profil: "→ À propos",
     profil_text: "Étudiant en <strong>L3 Ingénieur Informatique à CY Tech</strong> (ex-EISTI), passionné par le développement et l'algorithmique. Maîtrise de <strong>Python, Java et C</strong>. Bilingue Français / Espagnol, je recherche une première expérience professionnelle du <strong>22 juin au 31 août 2026</strong> pour mettre mes compétences techniques au service de projets concrets.",
 
     // Expériences
-    section_exp: "// Expériences professionnelles",
+    section_exp: "→ Expériences professionnelles",
     exp1_company: "La Francesa — République Dominicaine",
     exp1_role: "Employé Polyvalent & Responsable Caisse",
     exp1_date: "Juil–Sept 2022 & 2023",
@@ -83,7 +83,7 @@ const translations = {
 
   en: {
     // Header
-    role1: "• Computer Engineering Student — CY Tech",
+    role1: "• Computer Engineering Student — ",
     role2: "• Algorithms · Development · Systems",
     badge: "10-week Internship — June › August 2026",
     location: "Cergy, France",

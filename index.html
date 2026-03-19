@@ -5,8 +5,6 @@
 <head>
   <meta charset="UTF-8">
   <title>ARNOUX Antoine CV</title>
-  <button onclick="applyTranslation('fr')">🇫🇷</button>
-  <button onclick="applyTranslation('en')">🇬🇧</button>
 </head>
 
 <style>
@@ -98,10 +96,13 @@
 </style>
 
 <div class="cv">
+  <button onclick="applyTranslation('fr')" ><img src="https://flagcdn.com/w20/fr.png" alt="Drapeau francais"></button>
+  <button onclick="applyTranslation('en')"><img src="https://flagcdn.com/w20/gb.png" alt="Drapeau anglais"></button>
   <div class="header">
     <div>
       <div class="name">Antoine<span>.</span><br>Arnoux</div>
-      <div class="role" id="role1">• Étudiant Ingénieur Informatique — <a href="https://cytech.cyu.fr" target="_blank">CY Tech</a><br id="role2">• Algorithmique · Développement · Systèmes</div>
+      <a class="role" id="role1"></a><a href="https://cytech.cyu.fr" target="_blank" id="link1">CY Tech</a>
+      <div class="role" id="role2"></div>
       <div class="badge" id="badge">Stage 10 semaines — Juin › Août 2026</div>
     </div>
     <div class="header-right">
@@ -226,7 +227,7 @@
       <div class="interest-item"><span class="interest-icon">🥊</span><div class="interest-name" id="int1_name">Kickboxing</div><div class="interest-desc" id="int1_desc">Esprit de compétition et discipline</div></div>
       <div class="interest-item"><span class="interest-icon">🏋️</span><div class="interest-name" id="int2_name">Musculation</div><div class="interest-desc" id="int2_desc">Régularité et dépassement de soi</div></div>
       <div class="interest-item"><span class="interest-icon">🤺</span><div class="interest-name" id="int3_name">Escrime</div><div class="interest-desc" id="int3_desc">Précision, stratégie, compétition</div></div>
-      <div class="interest-item"><span class="interest-icon">🌊</span><div class="interest-name" id="int4_name">Bénévolat</div><div class="interest-desc" id="int4_desc">Nettoyage de plage — <a href="https://parley.tv">Parley for the Oceans</a></div></div>
+      <div class="interest-item"><span class="interest-icon">🌊</span><div class="interest-name" id="int4_name">Bénévolat</div><a class="interest-desc" id="int4_desc">Nettoyage de plage — </a><a href="https://parley.tv">Parley for the Oceans</a></div>
       <div class="interest-item"><span class="interest-icon">🏃</span><div class="interest-name" id="int5_name">Course caritative</div><div class="interest-desc"  id="int5_desc">Santa Run — engagement solidaire</div></div>
     </div>
   </div>
