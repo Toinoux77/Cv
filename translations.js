@@ -23,7 +23,8 @@ const translations = {
     exp1_company: "La Francesa — République Dominicaine",
     exp1_role: "Employé Polyvalent & Responsable Caisse",
     exp1_date: "Juil–Sept 2022 & 2023",
-    exp1_li1: "<strong>Rigueur financière</strong> — Responsable de la fiabilité de la caisse et des flux monétaires.",
+    exp1_li1: "<strong>Rigueur financière</strong>",
+    exp1_li12: " — Responsable de la fiabilité de la caisse et des flux monétaires.",
     exp1_li2: "<strong>Gestion opérationnelle</strong> — Optimisation du stockage en rayon et gestion des priorités en période de forte affluence.",
     exp1_tag1: "Gestion",
     exp1_tag2: "Rigueur",
@@ -98,7 +99,7 @@ const translations = {
 
     // Profil
     section_profil: "→ About me",
-    profil_text: "Computer Engineering student <strong>(L3) at CY Tech</strong> (formerly EISTI), passionate about software development and algorithms. Proficient in <strong>Python, Java and C</strong>. Bilingual French / Spanish, I am looking for a first professional experience from <strong>June 22 to August 31, 2026</strong> to apply my technical skills to real-world projects.",
+    profil_text: "Third-year Computer Engineering student <strong>at CY Tech</strong> (formerly EISTI), passionate about software development and algorithms. Proficient in <strong>Python, Java and C</strong>. Bilingual French / Spanish, I am looking for a first professional experience from <strong>June 22 to August 31, 2026</strong> to apply my technical skills to real-world projects.",
 
     // Expériences
     section_exp: "→ Work Experience",
